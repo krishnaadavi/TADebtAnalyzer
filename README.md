@@ -5,7 +5,7 @@ Analyzes debt, payment plan and payment info retrieved from web services and out
 
 # Specification: https://gist.github.com/jeffling/2dd661ff8398726883cff09839dc316c
 
-# Objective: 
+# Objectives 
 - Compute and display the debt summaries analyzing the payments, payment plans and debt data provided by the services.
 - Implementation should address all the scenarios laid out in the spec.
 - Design should be modular and extendable for enhancements.
