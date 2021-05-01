@@ -24,23 +24,23 @@ business logic - Logic implemented per specification is in TADebtAnalyzer class.
 
 tests - Unit tests implemented provide the test coverage for all the cases.
 
-#Key aspects of the application
+# Key aspects of the application
 - TADebtAnalyzerApp java class is the entry point
 - TAService abstracts the backend service functionality
 - data and info objects are in model package
 - TADebtAnalyzerTest has all the unit tests providing coverage for core functionality 
 
-#Assumptions
+# Assumptions
 - Data from HTTP services is valid and is always available
 - Data schema from HTTP services is assumed to be in correct format
 
-#Enhancements (if there is more time..)
+# Enhancements (if there is more time..)
 - Configure the environment specific properties (service urls etc)
 - Dependency injections for TAService etc.
 - build server backend services layer, fetch data from other TA or 3rd party services
 - Instead of stdout, output can be written to db or a file for further analytics.
 
-#Instructions to compile and run 
+# Instructions to compile and run 
 Terminal: 
 - run.sh //compiles and runs TADebtAnalyzerApp 
 - please ensure java is installed
