@@ -35,11 +35,21 @@ tests - Unit tests implemented provide the test coverage for all the cases.
 - Data schema from HTTP services is assumed to be in correct format
 
 #Enhancements (if there is more time..)
-- Configurize the environment specific properties (service urls etc)
+- Configure the environment specific properties (service urls etc)
 - Dependency injections for TAService etc.
 - build server backend services layer, fetch data from other TA or 3rd party services
 - Instead of stdout, output can be written to db or a file for further analytics.
 
+#Instructions to compile and run 
+Terminal: 
+- run.sh //compiles and runs TADebtAnalyzerApp 
+- please ensure java is installed
+
+IDE: 
+- You may use any of the IDEs (I used IntelliJ)
+- pom.xml is included in the project
+- Open the project in IDE and run TADebtAnalyzerApp class
+- run TADebtAnalyzerTest for unit tests 
 
 
 
