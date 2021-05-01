@@ -31,6 +31,9 @@ public class TADebtAnalyzerApp {
         debtAnalyzer.displayDebtInfo(debtPaymentInfoList);
     }
 
+    /*
+    * Processes debts, computes next payment date, amount remaining by factoring in the payments made and payment plans setup.
+    * */
     public List<DebtPaymentInfo> processDebtPayments(List<Debt> debts, Map<Integer, PaymentPlan> debtPaymentPlans, List<Payment> payments) {
         List<DebtPaymentInfo> debtPaymentInfoList = new ArrayList<>();
         try{
@@ -56,6 +59,8 @@ public class TADebtAnalyzerApp {
                     }
                     if(amountRemaining > 0) {
                         nextPaymentDueDate = plan.getNextPaymentDate(recentPaymentDate);
+                    } else {
+                        isInPaymentPlan = false;
                     }
                 }
                 return new DebtPaymentInfo(debt.getId(), debtAmount, amountRemaining,nextPaymentDueDate, isInPaymentPlan);

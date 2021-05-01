@@ -53,8 +53,15 @@ public class PaymentPlan {
 
     public Date getNextPaymentDate(Date paymentDate) {
         Calendar c = Calendar.getInstance();
-        c.setTime(paymentDate);
+        if(this.startDate == null) {
+            return null;
+        }
+        if(!this.getInstallmentFrequency().equalsIgnoreCase("WEEKLY") && !this.installmentFrequency.equalsIgnoreCase("BI_WEEKLY")) {
+            return null;
+        }
+        c.setTime(getStartDate());
         Date nextPaymentDueDate;
+        //next payment due date is start + installment frequency that's after the most recent payment date
         int increment = this.getInstallmentFrequency().equalsIgnoreCase("WEEKLY") ? 7 : 14;
         while(c.getTime().before(paymentDate)){
             c.add(Calendar.DATE, increment);
