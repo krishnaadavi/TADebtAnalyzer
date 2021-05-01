@@ -7,11 +7,11 @@ import java.text.ParseException;
 Represents payment plan information.
  */
 public class PaymentPlan {
-    private float amountToPay;
-    private int debtId;
-    private int id;
-    private float installmentAmount;
-    private String installmentFrequency;
+    private final float amountToPay;
+    private final int debtId;
+    private final int id;
+    private final float installmentAmount;
+    private final String installmentFrequency;
     private Date startDate;
     static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -49,5 +49,17 @@ public class PaymentPlan {
     }
     public Date getStartDate(){
         return this.startDate;
+    }
+
+    public Date getNextPaymentDate(Date paymentDate) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(paymentDate);
+        Date nextPaymentDueDate;
+        int increment = this.getInstallmentFrequency().equalsIgnoreCase("WEEKLY") ? 7 : 14;
+        while(c.getTime().before(paymentDate)){
+            c.add(Calendar.DATE, increment);
+        }
+        nextPaymentDueDate = c.getTime();
+        return nextPaymentDueDate;
     }
 }
